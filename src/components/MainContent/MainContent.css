@@ -1,8 +1,43 @@
-.custom-radio {
-    width: 2rem; /* Set the size */
-    height: 2rem; /* Set the size */
-    border: 2px solid #4a5568; 
-    background-color: orange; /* Change background color */
-    border-radius: 50%;
-    cursor: pointer; /* Add pointer cursor */
+
+  
+  .radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
   }
+  
+  .radio {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
+    /* transform: translateZ(-25px); */
+    /* transition: all 0.3s ease-in-out; */
+  }
+  
+  .radio::before {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    top: 4px;
+    left: 4px;
+    border-radius: 50%;
+    background-color: #eba610;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio {
+    border-color: #dbe2e1;
+    transform: translateZ(0px);
+    background-color: #fff;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio::before {
+    opacity: 1;
+  }
+  

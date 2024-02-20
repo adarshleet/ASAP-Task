@@ -51,7 +51,7 @@ const MainContent = () => {
                 </ul>
             </div>
             <div className='p-3 lg:w-1/2'>
-                <p className='text-2xl font-extrabold mb-3'>Overview</p>
+                <p className='text-3xl font-extrabold mb-3'>Overview</p>
                 <div className='bg-white drop-shadow-4xl p-5 rounded-md'>
                     <div className='flex gap-3 mb-5'>
                         <div className='flex items-center gap-2 flex-1'>
@@ -68,15 +68,15 @@ const MainContent = () => {
                                 <p className='text-base font-semibold'>Offline</p>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div className='flex items-center gap-2 mb-3'>
-                            <p className='text-2xl text-orange-500'><GrUserExpert /></p>
-                            <div>
-                                <p className='-mb-1 font-light text-sm'>Eligibility</p>
-                                <p className='text-base font-semibold'>Graduate, preferably in Science, CS, IT and EC streams</p>
-                            </div>
+                        <p className='text-2xl text-orange-500'><GrUserExpert /></p>
+                        <div>
+                            <p className='-mb-1 font-light text-sm'>Eligibility</p>
+                            <p className='text-base font-semibold'>Graduate, preferably in Science, CS, IT and EC streams</p>
                         </div>
+                    </div>
                     <div className=''>
                         <p className='text-base font-light'>Training Partner</p>
                         <div className='flex gap-2 items-center'>
@@ -93,6 +93,16 @@ const MainContent = () => {
                         </div>
                     </div>
                 </div>
+                <div className='my-5 text-lg text-gray-700'>
+                    <p>Additional Skill Acquisition Programme (ASAP) Kerala is a Section-8 Company of the Department of Higher Education, Government of Kerala, that focusses on skilling students and the general community to enhance their employability. Instituted in 2012, ASAP Kerala transitioned to a company under the Companies Act, 2013, in 2021. br
+                        With nearly a decade of service, we at ASAP Kerala have become a premier government edTech company, building integrated learning and talent management solutions. ASAP Kerala has nearly become synonymous with skilling, upskilling and reskilling in corporate and academic domains, by offering 150+ contemporary courses in 19 domains.</p>
+                </div>
+                <div>
+                    <p className='text-3xl font-extrabold mb-3'>Syllabus</p>
+                    <div>
+                        
+                    </div>
+                </div>
             </div>
             <div className='flex-1 p-5'>
                 <div className='bg-white p-5 drop-shadow-sm rounded-md'>
@@ -103,9 +113,9 @@ const MainContent = () => {
                         <h2 className='text-xl font-bold mb-5'>Course Registration</h2>
                         <h3 className='font-light'>Enter the basic info and let's begin the journey...</h3>
                         <div className='my-3 space-y-4'>
-                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Your Full Name'/>
-                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Mobile Number'/>
-                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Email'/>
+                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Your Full Name' />
+                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Mobile Number' />
+                            <input type="text" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='Email' />
                             {/* <input type="t" className='w-full p-3 rounded-lg border focus:outline-none' placeholder='District'/> */}
                             <select name="" id="" className='w-full p-3 rounded-lg border focus:outline-none text-gray-500'>
                                 <option value="" className='h-10' selected>District</option>
@@ -113,10 +123,60 @@ const MainContent = () => {
                             </select>
                         </div>
                         <div className='my-6'>
-                            <h2 className='text-xl font-bold mb-5'>Select CSP</h2>
-                            <div>
-                                <input type="radio" className='bg-orange-500 text-lg custom-radio'/>
+                            <h2 className='text-xl font-bold mb-4'>Select CSP</h2>
+                            <div className='space-y-3'>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Vizhinjam" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Vizhinjam</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Palayad" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Palayad</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Kazhakkoottam" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Kazhakkoottam</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Mananthavady" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Mananthavady</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Vizhinjam" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Vizhinjam</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
+                                <label className="radio-button flex items-center justify-between gap-2 border p-3 rounded-md">
+                                    <div className='flex gap-2'>
+                                        <input type="radio" name="example-radio" value="CSP Palayad" />
+                                        <span class="radio"></span>
+                                        <h3>CSP Palayad</h3>
+                                    </div>
+                                    <p className='text-xs font-light'>Next Batch April 2024</p>
+                                </label>
                             </div>
+
+                            <button className='p-3 text-center w-full bg-orange-400 mt-10 text-white font-semibold text-lg rounded-md' >Register Now</button>
+
                         </div>
                     </div>
                 </div>
