@@ -1,0 +1,8 @@
+.custom-radio {
+    width: 2rem; /* Set the size */
+    height: 2rem; /* Set the size */
+    border: 2px solid #4a5568; 
+    background-color: orange; /* Change background color */
+    border-radius: 50%;
+    cursor: pointer; /* Add pointer cursor */
+  }
