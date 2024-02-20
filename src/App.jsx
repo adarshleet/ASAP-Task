@@ -3,6 +3,8 @@ import './App.css'
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
 import MainContent from './components/MainContent/MainContent'
+import SuggestedCourses from './components/SuggestedCourses/SuggestedCourses'
+import DownloadBanner from './components/DownloadBanner/DownloadBanner'
 
 function App() {
     return (
@@ -10,6 +12,8 @@ function App() {
             <Header/>
             <Banner/>
             <MainContent/>
+            <SuggestedCourses/>
+            <DownloadBanner/>
         </>
     )
 }
