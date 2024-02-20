@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../assets/images/logo.png'
 
 
 const Header = () => {
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 0;
+            setScrolled(isScrolled);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <nav class=" border-gray-200">
-            <div class="flex flex-wrap justify-between items-center mx-10 px-4 pb-4 fixed top-0 left-0 right-0">
+        // <nav class=" border-gray-200">
+            <nav class={`flex flex-wrap justify-between items-center px-14 pb-1 fixed top-0 left-0 right-0 z-50  ${scrolled ? 'bg-white' : 'bg-transparent'}`}>
                 <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src={logo} class="h-28" alt="Flowbite Logo" />
                 </a>
@@ -40,8 +56,8 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        // </nav>
 
     )
 }

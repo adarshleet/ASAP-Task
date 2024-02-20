@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { SlEye, SlGraduation } from "react-icons/sl";
 import { GrUserExpert } from "react-icons/gr";
 import { BsCardChecklist } from "react-icons/bs";
@@ -9,6 +9,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import { LuWallet } from "react-icons/lu";
 import { RiShieldCheckFill } from "react-icons/ri";
 import { HiOutlineVideoCamera } from "react-icons/hi2";
+import { FaPlus,FaMinus } from "react-icons/fa6";
 
 import asapLogo from '../../assets/images/logo.png'
 import curveLogo from '../../assets/images/curve.jpg'
@@ -26,36 +27,58 @@ import ksfe from '../../assets/images/ksfe-logo.png'
 import './MainContent.css'
 
 const MainContent = () => {
+
+    const Overview = useRef(null)
+    const syllabus = useRef(null)
+    const courseFee = useRef(null)
+    const scholarship = useRef(null)
+    const skillLoan = useRef(null)
+    const Faq = useRef(null)
+    const [activeButton, setActiveButton] = useState(1);
+
+    const [syllabusOpen,setSyllabusOpen] = useState(1)
+
+    const scrollToRef = (ref,index) => {
+        const section = ref.current;
+        const topOffset = section.offsetTop;
+        const windowHeight = window.innerHeight;
+        const sectionHeight = section.offsetHeight;
+        const targetScroll = topOffset - (windowHeight - sectionHeight) / 2 - 50;
+        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        console.log(index)
+        setActiveButton(index)
+      };
+
     return (
         <>
             <div className='flex mx-14'>
-                <div className='flex-none hidden lg:block lg:w-56  p-3 text-sm'>
+                <div className='flex-none hidden lg:block lg:w-56  p-3 text-sm sticky'>
                     <ul>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border bg-orange-500 text-white rounded-md shadow-md'>
-                            <h2 className='text-2xl'><SlEye /></h2>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 1 && 'side-button'}`} onClick={()=>scrollToRef(Overview,1)}>
+                            <h2 className='text-2xl text-orange-500'><SlEye /></h2>
                             <h2>Overview</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 2 && 'side-button'}`} onClick={()=>scrollToRef(syllabus,2)}>
                             <h2 className='text-2xl text-orange-500'><BsCardChecklist /></h2>
                             <h2>Syllabus</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 3 && 'side-button'}`} onClick={()=>scrollToRef(Overview,3)}>
                             <h2 className='text-2xl text-orange-500'><GrUserExpert /></h2>
                             <h2>Eligibility</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 4 && 'side-button'}`} onClick={()=>scrollToRef(courseFee,4)}>
                             <h2 className='text-2xl text-orange-500'><PiMoney /></h2>
                             <h2>Course Fee</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 5 && 'side-button'}`} onClick={()=>scrollToRef(scholarship,5)}>
                             <h2 className='text-2xl text-orange-500'><SlGraduation /></h2>
                             <h2>Scholarship</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 6 && 'side-button'}`} onClick={()=>scrollToRef(skillLoan,6)}>
                             <h2 className='text-2xl text-orange-500'><PiDatabase /></h2>
                             <h2>Skill Loan</h2>
                         </li>
-                        <li className='flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md'>
+                        <li className={`flex items-center gap-2 py-2.5 mb-3 ps-4 pr-5 border border-orange-100 bg-white text-gray-500 rounded-md cursor-pointer ${activeButton == 7 && 'side-button'}`} onClick={()=>scrollToRef(Faq,7)}>
                             <h2 className='text-2xl text-orange-500'><TbMessage2Question /></h2>
                             <h2>FAQ's</h2>
                         </li>
@@ -63,7 +86,7 @@ const MainContent = () => {
                 </div>
                 <div className='p-3 lg:w-1/2'>
                     <p className='text-3xl font-extrabold mb-3'>Overview</p>
-                    <div className='bg-white drop-shadow-4xl p-5 rounded-md'>
+                    <div className='bg-white drop-shadow-4xl p-5 rounded-md' ref={Overview}>
                         <div className='flex gap-3 mb-5'>
                             <div className='flex items-center gap-2 flex-1'>
                                 <p className='text-2xl text-orange-500'><GoClock /></p>
@@ -108,11 +131,15 @@ const MainContent = () => {
                         <p>Additional Skill Acquisition Programme (ASAP) Kerala is a Section-8 Company of the Department of Higher Education, Government of Kerala, that focusses on skilling students and the general community to enhance their employability. Instituted in 2012, ASAP Kerala transitioned to a company under the Companies Act, 2013, in 2021. br
                             With nearly a decade of service, we at ASAP Kerala have become a premier government edTech company, building integrated learning and talent management solutions. ASAP Kerala has nearly become synonymous with skilling, upskilling and reskilling in corporate and academic domains, by offering 150+ contemporary courses in 19 domains.</p>
                     </div>
-                    <div className='my-5'>
+                    <div className='my-5' ref={syllabus}>
                         <p className='text-3xl font-extrabold mb-3'>Syllabus</p>
                         <div className='space-y-3'>
-                            <div className='bg-orange-50 border rounded-md'>
-                                <h1 className='p-2'>FOUNDATION FOR MACHINE LEARNING</h1>
+                            <div className={`${syllabusOpen==1 && 'bg-orange-50'} border rounded-md`}>
+                                <div className='flex justify-between items-center px-2 cursor-pointer' onClick={()=>setSyllabusOpen(1)}>
+                                    <h1 className='p-2'>FOUNDATION FOR MACHINE LEARNING</h1>
+                                    <p>{syllabusOpen == 1 ? <FaMinus/> : <FaPlus/>}</p>
+                                </div>
+                                {syllabusOpen == 1 && 
                                 <div className='border-t p-3 space-y-2'>
                                     <div className='flex items-center gap-3 text-lg font-light'>
                                         <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
@@ -122,9 +149,60 @@ const MainContent = () => {
                                         <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
                                         <p>Develop programming solution in Python with scientific python libraries</p>
                                     </div>
+                                </div>}
+                            </div>
+                            <div className={`${syllabusOpen==2 && 'bg-orange-50'} border rounded-md`}>
+                                <div className='flex justify-between items-center px-2 cursor-pointer' onClick={()=>setSyllabusOpen(2)}>
+                                    <h1 className='p-2'>FOUNDATION FOR MACHINE LEARNING</h1>
+                                    <p>{syllabusOpen == 2 ? <FaMinus/> : <FaPlus/>}</p>
                                 </div>
+                                {syllabusOpen == 2 && 
+                                <div className='border-t p-3 space-y-2'>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Linear algebra, ransom processes and optimisation techniques for machine learning</p>
+                                    </div>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Develop programming solution in Python with scientific python libraries</p>
+                                    </div>
+                                </div>}
                             </div>
-                            <div className='border rounded-md'>
+                            <div className={`${syllabusOpen==3 && 'bg-orange-50'} border rounded-md`}>
+                                <div className='flex justify-between items-center px-2 cursor-pointer' onClick={()=>setSyllabusOpen(3)}>
+                                    <h1 className='p-2'>FOUNDATION FOR MACHINE LEARNING</h1>
+                                    <p>{syllabusOpen == 3 ? <FaMinus/> : <FaPlus/>}</p>
+                                </div>
+                                {syllabusOpen == 3 && 
+                                <div className='border-t p-3 space-y-2'>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Linear algebra, ransom processes and optimisation techniques for machine learning</p>
+                                    </div>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Develop programming solution in Python with scientific python libraries</p>
+                                    </div>
+                                </div>}
+                            </div>
+                            <div className={`${syllabusOpen==4 && 'bg-orange-50'} border rounded-md`}>
+                                <div className='flex justify-between items-center px-2 cursor-pointer' onClick={()=>setSyllabusOpen(4)}>
+                                    <h1 className='p-2'>FOUNDATION FOR MACHINE LEARNING</h1>
+                                    <p>{syllabusOpen == 4 ? <FaMinus/> : <FaPlus/>}</p>
+                                </div>
+                                {syllabusOpen == 4 && 
+                                <div className='border-t p-3 space-y-2'>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Linear algebra, ransom processes and optimisation techniques for machine learning</p>
+                                    </div>
+                                    <div className='flex items-center gap-3 text-lg font-light'>
+                                        <p className='p-0.5 rounded-full bg-orange-100 text-orange-500'><IoMdCheckmark /></p>
+                                        <p>Develop programming solution in Python with scientific python libraries</p>
+                                    </div>
+                                </div>}
+                            </div>
+                            {/* <div className='border rounded-md'>
                                 <h1 className='p-2'>MACHINE LEARNING TECHIQUES</h1>
                             </div>
                             <div className='border rounded-md'>
@@ -135,10 +213,10 @@ const MainContent = () => {
                             </div>
                             <div className='border rounded-md'>
                                 <h1 className='p-2'>MACHINE LEARNING TECHIQUES</h1>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    <div className='my-10'>
+                    <div className='my-10' ref={courseFee}>
                         <p className='text-3xl font-extrabold mb-3'>Course Fee</p>
                         <div className='px-3 py-3  border border-gray-300 w-72 rounded-md flex items-center gap-2'>
                             <div className='border-r pr-4'>
@@ -165,7 +243,7 @@ const MainContent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='my-10 '>
+                    <div className='my-10 ' ref={scholarship}>
                         <p className='text-3xl font-extrabold mb-3 '>Scholarship</p>
                         <div className='space-y-2 text-gray-600'>
                             <div className='flex items-center gap-2 text-lg'>
@@ -191,7 +269,7 @@ const MainContent = () => {
                         </div>
                         <p className='py-4 text-lg text-gray-600'>The scholarship support is limited to 70% of the course fees or Rs. 20000 whichever is lesser</p>
                     </div>
-                    <div className='my-10'>
+                    <div className='my-10' ref={skillLoan }>
                         <p className='text-3xl font-extrabold mb-3 '>Skill Loan</p>
                         <p className='text-lg text-gray-600 mb-3'>Below funding agencies are providing skill loans for this course</p>
                         <div className='flex gap-4 text-center'>
@@ -209,7 +287,7 @@ const MainContent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='my-5'>
+                    <div className='my-5' ref={Faq}>
                         <p className='text-3xl font-extrabold mb-3'>Frequently Asked Questions</p>
                         <div className='space-y-3'>
                             <div className='bg-orange-50 border rounded-md'>

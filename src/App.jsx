@@ -5,6 +5,7 @@ import Banner from './components/Banner/Banner'
 import MainContent from './components/MainContent/MainContent'
 import SuggestedCourses from './components/SuggestedCourses/SuggestedCourses'
 import DownloadBanner from './components/DownloadBanner/DownloadBanner'
+import Footer from './components/Footer/Footer'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <MainContent/>
             <SuggestedCourses/>
             <DownloadBanner/>
+            <Footer/>
         </>
     )
 }
